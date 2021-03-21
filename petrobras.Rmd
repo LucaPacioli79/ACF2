@@ -1,0 +1,210 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+
+
+
+
+  
+
+<!--
+
+--> 
+
+
+
+# Introduction
+
+In this case, we will be examining a specific bond issue by a Brazilian state-controlled oil producer Petróleo Brasilerio S/A - Petrobras (referred to as "Petrobras" from this point). This case takes place in October 2009, i.e. in the midst of the global financial crisis, thus making financing for some companies especially expensive due to the extreme risk-aversity of creditors.
+
+In the case, we will be calculating credit rating we would assign to Petrobras ourselves based on provided Moody's standard procedure, using data from financial statements provided. Despite being one of the largest oil producers in the world and recently having discovered new oil fields, which should ensure stable cash-flows, the credit ratings both by Moody's and S&P could be deemed as quite low and we will be trying to explain this disparity.
+
+Moreover, we will be calculating present value of the bond issue, taking into account different scenarios, i.e. considering multiple discount rates based on the bond yields of other oil producers with the same credit rating. Lastly, we will comment on yield which the Petrobras's bond provided to the investors.
+
+
+# Question 1: 
+### **What rating would you assing to Petrobras senior, unsecured bonds?**
+
+In order to come up with a credit score, we strictly based our derivations on the report by Moody’s^[Moody's Financial MetricsTM Key Ratios by Rating and Industry for Global Non-Financial Corporates: December 2016]. The document indicates eleven credit ratios that are combined together to give a final credit score. 
+
+Our approach involved calculating each of the key ratios with the information we had available and finding the credit score by sector that best suits each ratio. In order to verify the fitness of the ratios we made use of the mean and standard deviation to assign the value to the correct credit class. Furthermore, to get a more precise final ratio, we used the whole scale of credit scores provided by Moody’s (Aaa, Aa1, Aa2, …, Caa). After having assigned every credit ratio to the credit score, we converted it into its numeric equivalent in *Table 1* and finally, we took the simple average to get the total credit rating^[Ferri, Giovanni & Liu, Li-Gang & Majnoni, 2000. How the Proposed Basel Guidelines on Rating-Agency Assessments Would Affect Developing Countries]. We take the simple average because we have no information on weights and therefore we assume one factor is as important as the others. 
+
+*Table 1: Numeric equivalents of credit ratings*
+$$
+\begin{array}{ccc}
+\text { MOODY'S } & \text { S\&P } & \text { NUMERIC EQUIVALENT } \\
+\hline \text { Aaa } & \text { AAA } & 100 \\
+\text { Aa1 } & \text { AA+ } & 95 \\
+\text { Aa2 } & \text { AA } & 90 \\
+\text { Aa3 } & \text { AA- } & 85 \\
+\text { A1 } & \text { A+ } & 80 \\
+\text { A2 } & \text { A } & 75 \\
+\text { A3 } & \text { A- } & 70 \\
+\text { Baa1 } & \text { BBB+ } & 65 \\
+\text { Baa2 } & \text { BBB } & 60 \\
+\text { Baa3 } & \text { BBB- } & 55 \\
+\text { Ba1 } & \text { BB+ } & 50 \\
+\text { Ba2 } & \text { BB } & 45 \\
+\text { Ba3 } & \text { BB- } & 40 \\
+\text { B1 } & \text { B+ } & 35 \\
+\text { B2 } & \text { B } & 30 \\
+\text { B3 } & \text { B- } & 25 \\
+\text { Caa1 } & \text { From CCC+ to CCC- } & 20 \\
+\text { Caa2 } & \text { CC } & 15 \\
+\text { Caa3 } & \text { C } & 10 \\
+\text { Caa } & \text { D } & 5
+\end{array}
+$$
+
+Given the over-simplified financial statements we had at our disposal, we had to make a couple of assumptions when calculating certain credit ratios. In the income statement the depreciation, amortization and depletion are reported as a single figure, therefore making it impossible to objectively dissociate one from another. 
+
+Our first assumption is that, given the machine heavy sector in which Petrobas operates, amortization is negligible (EBIT = EBITA). Our second assumption is slightly more complicated and states that the ratio between tangible and intangible assets is equal to the ration of deprecation and amortization. By calculating the ratio between tangible and intangible asset, we can dissociate between depreciation and amortization and calculate EBITA as follows:
+$$
+EBITA = EBIT + \frac{\text{intagible assets}}{\text{tangible assets}}*(EBITDA-EBIT)
+$$
+Given the fact that we do not have a cash flow statement and neither an extensive balance sheet at our disposal, we could not calculate the FFO, RCF and Book Capitalization to the full extent and we therefore used an approximation based on the values we had available. For these reasons the credit rating that we assigned to Petrobas might be slightly different from the one of Moody’s. 
+
+Following the aforementioned procedure, for both assumptions, we were able to assign to Petrobas’ bonds an upper medium grade credit score (A3). 
+
+*Table 2: Credit ratios calculated from the financial statements and the respective ratings*
+
+| Credit Ratio                                | 1st assumption  | 1st assumption Credit Rating | 2nd assumption | 2nd assumption Credit Rating |
+|---------------------------------------------|-----------------|------------------------------|----------------|------------------------------|
+| EBITA / avg. ASSETS                         | 0.24            | Baa3                         | 0.27           | Ba1                          |
+| EBITA / Interest Expense                    | 15.11           | Baa2                         | 16.60          | Baa2                         |
+| EBITA Margin                                | 0.23            | A1                           | 0.26           | A2                           |
+| Operating Margin                            | 0.23            | Baa1                         | 0.23           | Baa1                         |
+| (FFO + Interest Expense) / Interest Expense | 14.05           | Aa1                          | 14.05          | Aa1                          |
+| FFO / Debt                                  | 0.69            | Baa3                         | 0.69           | Baa3                         |
+| RCF / Net Debt                              | 0.94            | Baa2                         | 0.94           | Baa2                         |
+| Debt / EBITDA                               | 1.25            | Baa2                         | 1.13           | Baa2                         |
+| Debt / Book Capitalization                  | 0.30            | Aa1                          | 0.30           | Aa1                          |
+| CAPEX / Depreciation Expense                | 4.32            | Baa2                         | 2.33           | A2                           |
+| Revenue Volatility                          | 0.09            | A1                           | 0.09           | A1                           |
+
+*Table 3: Assigned numerical values of respective credit ratings*
+
+| Credit Rating Scaled                        |  |             |  |    |
+|---------------------------------------------|--|-------------|--|----|
+| EBITA / avg. ASSETS                         |  | 55          |  | 50 |
+| EBITA / Interest Expense                    |  | 60          |  | 60 |
+| EBITA Margin                                |  | 80          |  | 75 |
+| Operating Margin                            |  | 65          |  | 65 |
+| (FFO + Interest Expense) / Interest Expense |  | 95          |  | 95 |
+| FFO / Debt                                  |  | 55          |  | 55 |
+| RCF / Net Debt                              |  | 60          |  | 60 |
+| Debt / EBITDA                               |  | 60          |  | 60 |
+| Debt / Book Capitalization                  |  | 95          |  | 95 |
+| CAPEX / Depreciation Expense                |  | 60          |  | 75 |
+| Revenue Volatility                          |  | 80          |  | 80 |
+| Average                                     |  | 69.54545455 |  | 70 |
+|                                             |  |             |  |    |
+| Final Credit Rating                         |  | A3          |  | A3 |
+
+Not happy with the result so far that bases the credit score just on financial metrics, which seemed rather oversimplistic, we decided to investigate more credit factors. An additional paper^[Global Integrated Oil & Gas Industry, Moody’s Global Corporate Finance, 2009, Appendix B: Methodology Grid-Indicated Ratings] uses 5 more factors . In order to refine our credit score, we decided to combine, by means of a weighted average based, our financial metric factor aggregate score (A3) with the other 5 factors’ scores individually calculated by Moody’s: reserve and production characteristics (25%), re-investment risk (10%), operating & financial efficiency (10%), downstream rating factors (15%), government dependence. Again, for the sake of accuracy we first convert the credit score to its numerical equivalent using the conversion table and then take the weighted average to find the final score. The formula surprisingly yields the same credit score of A3 if we do not take into account the influence of the government but a credit score of Baa3 if we do take it into account, this last result seems to us more reasonable.  
+
+ 
+
+# Question 2: 
+### **Petrobras's bonds were assigned a rating of Baa1. What might be the reason for such relatively low rating?**
+
+
+As a government-owned monopoly, Petrobras is heavily reliant on the price of oil and its byproducts and the Brazilian government's decisions. Petrobras would suffer from sinking oil prices, which were exorbitant at that time, as oil prices tend to revert to their mean levels and Moody’s rating agency accounted for this fact. Moreover, by looking at the comparables provided in Exhibit 7 of the original case, we notice two elements: firstly, the state-owned companies have much lower rating than public companies and secondly, it depends who the state-controlling the company is. 
+
+Companies controlled by countries that are politically unstable and are assigned an unfavourable Sovereign Credit Rating are impacted adversely, as expected, while state-owned companies of more stable countries like Norway are assigned a rating that which does not reflect the fact a company is state-owned. 
+
+The six factor-weighted rating (with respective weights, if applicable) used by Moody’s at that time considered: 
+
+1. Reserve and production characteristics (25%)
+2. Re-investment Risk (10%), Operating & Capital efficiency (10%)
+3. Downstream Rating Factors (15%), Financial Metrics (40%) 
+4. Government Fiscal Dependence (not weighted). 
+
+Considering only the first 5 factors, excluding the fact that Petrobras is state-controlled, it would be assigned a rating of A1, as published in the methodology^[Rating methodology for Global Integrated Oil & Gas Industry, November 2009] with respect to the data until 31st December 2008. We can notice that the more influence the state had, the more adversely was the rating affected. 
+
+Moody’s stated that the six-factor model does not capture all the risks, however, their ratings incorporate country risk factors that impact the performance and reliance of a company on state-funding and state-control, further demonstrating that Petrobras was assigned a low rating because it is state-owned by Brazil, whose political instability further leads to a grimmer rating for Petrobras. 
+
+The most extreme example that illustrates the role that governments play in the ratings of the companies controlled by them is case of Petroleos de Venezuela, owned and controlled by the Venezuelan government, whose performance has been stellar, but its relationship with the government has made it expensive for the company to borrow in the international markets. Considering only the first 5 factors, excluding the fact that Petroleos de Venezuela is state-controlled, Petroleos de Venezuela would be assigned a rating of Aa1, as published in the methodology$^3$ with respect to the data until 31st December 2008, instead of a rating Ba1 considering all six factors. 
+
+Furthermore, although Petrobras had stable financial metrics at the time, the political instability of Brazil and the increased cost of raising capital led to more unfavourable rating as investors and regulators were scrutinizing companies and rating agencies who played a key negative role surrounding the financial crisis. Petrobras could improve its rating by reducing its exposure to government control and by maintaining a financial discipline as well as its consistency showcasing its ability to weather any crisis.
+
+Moreover, Petrobras would benefit immensely by tighter regulatory requirements in Brazil, which could lead to an upgrade to the Government of Brazil and subsequently an upgrade of Petrobras's rating. On the other hand, Petrobras would be downgraded if its financial performance would deteriorate and if the litigations would significantly affect the company. 
+
+
+In conclusion and in the effort to asnwer the question, we can state that Moody’s does not account for the recent offshore oil discovery, stating that the exploration of that oil field is in its early stages and it is difficult to determine the profitability of the oil and gas field. It seems that assessing the capital investment required and commerciality is difficult at this early stage, thus it could be one of the reasons why Moody’s did not upgrade Petrobras rating. 
+
+
+# Question 3:
+
+### **Petrobras issued 10-year bonds of face value $2.5bn, paying a semi-annual coupon og 5.75% on 20 January and 20 July and maturing on 20 January 2020. The settlement date was 30 October 2009, at which point interest started accruing. The yield on the bonds was 5.875%. Compute the present value of the bonds.**
+
+In order to determine the present value of the bonds, we of course need to sum all the coupon payments together with the principal payment discounted at an appropriate discount rate. We will be using the following formula for the computation: 
+$$
+PV=\sum_{t=1}^{T} \frac{C_{t}}{(1+\frac{y}{2})^{t}}
+$$
+where
+
+$$
+PV = \text{present value of the bond}
+$$
+$$
+C_t = \text{cash flow in half-year t}
+$$
+$$
+T = \text{total number of half-year periods}
+$$
+$$
+y = \text{yield/discount rate on p.a. basis}
+$$
+While the computation itself is rather mechanical and straightforward, **choosing an appropriate discount rate is not and requires some consideration**. Discount rate can be considered as a yield on the next-best investment in the same asset class with the same level of risk. Omitting interest rate risk, we can compare individual bonds by their credit rating, which should reflect the respective default risk. We can thus consider other oil companies' bonds yields with the same credit rating (thus equally risky) as an appropriate discount rate.
+
+We have credit ratings from two separate rating agencies (Moody's and S&P) at our disposal, therefore we will look for companies which have the same credit rating according to Moody's (Baa1) and use the yields as the discount rate. We will do the exercise with the rating by S&P (BBB-), i.e. look for companies with the same rating and use the yield as the discount rate.
+
+Moreover, we will also consider scenario where we view our calculated credit rating by Moody's procedure from Question 1 as the "real one" and again look for companies with the same credit rating and use the yield as our discount rate.
+
+In Exhibit 7 from the original case, we can find credit ratings of comparable companies together with the yield spreads in basis points. We are providing a modified version of the same table in our case with only relevant companies for our analysis with their respective credit rating, yield spreads and yields.
+
+**There is another important assumption which we had to make in order to proceed with the case** and that being yield spread. We do not have any additional or explanatory information on the spread, therefore we assume that the yield spread indicated in the table is the spread between the yield of the bond of a respective company and the **US Government Bond** with the same maturity of 10 years. This makes sense to us, since the US Government Bonds are usually considered the benchmark all bonds are compared to. 
+
+The yield on US Governemtn 10-year bond in October 2009 was provided in Exhibit 5 in the original case and equaled to **3.30%**.
+
+Another assumption made was that the credit ratings and the respective yields of the companies in Exhibit 7 were all on 10 year bonds, since it would not make sense to compare bonds of different maturities in this case.
+
+*Table 4: Relevant comparable companies with their credit rating and bonds yields*
+
+             
+| Company              | Moody's Rating | S&P Rating | Our Rating | Market Capitalization (millions $) | Oct. 2009 Spread | Yield |
+|----------------------|----------------|------------|------------|------------------------------------|------------------|-------|
+| PETROBRAS            | Baa1           | BBB-       | A3/Baa3    | 187’392                            |                  | N/A   |
+| GAZPROM OAO          | Baa1           | BBB        |            | 143’665                            |                  |       |
+| LUKOIL               | Baa2           | BBB-       |            | 47’583                             | 332.5            | 6.63% |
+| REPSOL YPF           | Baa1           | BBB        |            | 32’752                             | 125              | 4.55% |
+| PETROLEOS MEXICANOS  | Baa1           | BBB        |            |                                    | 207.7            | 5.38% |
+
+*Table 5: Yields selected as discount rate based on comparables and average yield of 3 relevant comparables*
+
+| Yield of comparables based on Moody's / S&P Rating            | Yields | Present value($)|
+|---------------------------------------------------------------|--------|-----------------|
+| Yiels is given                                                | 5.875% |  2,476,619,049  |
+| Lukoil (BBB-)                                                 | 6.625% |  2,341,881,163  |
+| Gazprom OAO (Baa1)                                            | 6.373% |  2,386,114,408  |
+| Repsol YPF (Baa1)                                             | 4.550% |  2,738,885,104  |
+| Petroleos Mexicanos (Baa1)                                    | 5.377% |  2,571,406,829  |
+| Average Yield of Gazprom OAO, Repsol YPF, Petroleos Mexicanos | 5.433% |  2,560,462,730  |
+
+Since there are three companies with the same Moody's credit rating as Petrobras (Baa1) and we decided to include an average yield of those companies as the discount rate to encompass full range of scenarios. Since there is no company, which had the same credit rating as the ones we calculated ourselves (A3/Baa3), we did not include that scenario. The closest credit rating to our is that of Lukoil, which already is in the table.
+
+On the most right-hand side with the table, we can see the calculated present values. We can see that depending on the selected yield (discount rate), the present value vary widely and are either at premium or discount in relation to the face value of the bond. The observed yield is at 5.875% and the bonds are trading at a discount, meaning investors are assigning higher discount rate than the interest rate. 
+
+Interestly enough, when we take the **average of all four comparable companies, we obtain a yield of 5.731%**, which is very close to the observed yield. We therefore think the investors followed a similar procedure and adjusted their buying activity to exploit any discrepancy between price and value of the bond.
+
+# Question 4: 
+### **Comment on the 5.875% yield. How does it compare to the yield on the bonds issued by other Baa1-rated governments and state owned oil companies?**
+
+# Conclusion
+
+
